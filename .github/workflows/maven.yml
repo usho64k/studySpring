@@ -21,13 +21,14 @@ jobs:
         distribution: 'adopt'
     - name: Build with Maven
       run: mvn -B package --file demo3/pom.xml
-	- name: deploy
-	  uses: einaregilsson/beanstalk-deploy@v10
-	  with:
-	    aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
-		aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-		application_name: SpringBootExecuter
-		environment_name: Springbootexecuter-env
-		version_label: ${{github.run_number }}
-		region: us-east-2
-		deployment_package: demo3/target/demo3-0.0.1-SNAPSHOT.jar
+      
+    - name: deploy
+      uses: einaregilsson/beanstalk-deploy@v10
+      with:
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        application_name: SpringBootExecuter
+        environment_name: Springbootexecuter-env
+        version_label: ${{github.run_number }}
+        region: us-east-2
+        deployment_package: demo3/target/demo3-0.0.1-SNAPSHOT.jar
