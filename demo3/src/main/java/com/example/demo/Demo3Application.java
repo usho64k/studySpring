@@ -17,7 +17,7 @@ public class Demo3Application {
 		@RequestMapping("/hello")
 		public String hello(){
 		
-			return "Hello World!";
+			return "Hello!";
 		}
 	}
 }
